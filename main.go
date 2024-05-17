@@ -83,6 +83,7 @@ func main() {
 		line, err := reader.ReadString('\n')
 		if err != nil {
 			if err.Error() == "EOF" {
+				fmt.Println("file reading done")
 				// close all the channels
 				go func() {
 					for _, channel := range stations {
@@ -102,6 +103,7 @@ func main() {
 		}
 
 		if _, ok := stations[parts[0]]; !ok {
+			fmt.Printf("channel created for: %s\n", parts[0])
 			stations[parts[0]] = make(chan float64)
 			go func() {
 				defer wg.Done()
