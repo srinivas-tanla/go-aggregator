@@ -10,8 +10,8 @@
 
 ### Approach
 1. Create a map with key as station name and value as channel
-2. Iterate through the input file and push the temperature values into a particaluar station channel(Fan Out)
-3. A goroutine will be created for each channel and it consumes the temperature values and find the min, mean and max temperature and publish this into aggregate channel(Fan In)
+2. Iterate through the input file and push the temperature values into a particaluar station channel(**Fan Out**)
+3. A goroutine will be created for each channel and it consumes the temperature values and find the min, mean and max temperature and publish this into aggregate channel(**Fan In**)
 4. Single goroutine will consume from aggregate channel and create a slice, sort it and write to output file
 
 ```
